@@ -27,7 +27,7 @@ $result = mysqli_query($connect, $query);
           <div class="navbar-nav">
             <a class="nav-link active" href="index.php">Pilihan Beasiswa</a>
             <a class="nav-link" href="daftar.php">Daftar</a>
-            <a class="nav-link" href="#">Hasil</a>
+            <a class="nav-link" href="hasil.php">Hasil</a>
             <a class="nav-link disabled" aria-disabled="true">Disabled</a>
           </div>
         </div>

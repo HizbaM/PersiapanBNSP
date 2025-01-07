@@ -17,6 +17,11 @@ if (isset($_POST['kirim'])) {
   $queryInsert = "INSERT INTO tbl_daftar (nama, email, hp, semester, ipk, id, status_pengajuan, filename)
   VALUES ('$nama', '$email', '$hp', '$semester', '$ipk', '$id_beasiswa', '$status', '$nama_file')";
   
+ // Memindahkan file dari lokasi sementara ke folder tujuan
+if (move_uploaded_file($file_sementara, $folder)) {
+  $queryInsert = "INSERT INTO tbl_daftar (nama, email, hp, semester, ipk, id, status_pengajuan, filename)
+  VALUES ('$nama', '$email', '$hp', '$semester', '$ipk', '$id_beasiswa', '$status', '$nama_file')";
+  
   if ($connect->query($queryInsert)) {
     echo "<script>
           alert('Sukses');
@@ -30,6 +35,7 @@ if (isset($_POST['kirim'])) {
 }
 
 }
+}
 ?>
 
 <!doctype html>
@@ -38,6 +44,7 @@ if (isset($_POST['kirim'])) {
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Formulir Beasiswa</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   </head>
   <body>
@@ -52,7 +59,7 @@ if (isset($_POST['kirim'])) {
           <div class="navbar-nav">
             <a class="nav-link active" aria-current="page" href="index.php">Pilihan Beasiswa</a>
             <a class="nav-link" href="daftar.php">Daftar</a>
-            <a class="nav-link" href="#">Hasil</a>
+            <a class="nav-link" href="hasil.php">Hasil</a>
             <a class="nav-link disabled" aria-disabled="true">Disabled</a>
           </div>
         </div>
