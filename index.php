@@ -75,7 +75,24 @@ $result = mysqli_query($connect, $query);
         </div>
       </div>
     </div>
+    <script>
 
+      //DOM (Document Object Model) memungkinkan JavScript untuk berinteraksi dengan elemen-elemen pada halaman web,
+      // seperti membaca, memanipulasi, atau mengubah konten, atribut, atau struktur dokumen.
+      //untuk berinteraksi dengan dom, pakai perintah document.
+
+      //addEventListener, dapat menambahkan logika yang akan dijalankan berdasarkan interkasi pengguna.
+
+      //jika menambahkan event kistener untuk DOMContentLoaded, script akan langsung dieksekusi segera setelah struktur HTML halaman sepenuhnya dimuat, bahkan sebelum gambar atau elemen media lainnya selesai dimuat.
+      
+      document.addEventListener("DOMContentLoaded", function(){
+        const ipkPengguna = ipk();
+        const kolomIpk = getElementById("ipk");
+        kolomIpk.value = ipkPengguna.toFixed(2);
+      });
+      function ipk(){
+        return Math.random()*2+2; }
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   </body>
 </html>
